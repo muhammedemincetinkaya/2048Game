@@ -145,9 +145,10 @@ Grid::Grid(int n) : grid(n,std::vector<int>(n,0))
 	{
 		for (const auto& row : grid)
 		{
+			std::cout << "\n";
 			for (int cell : row)
 			{
-				std::cout << cell << "\t";
+				std::cout  << cell << "\t";
 			}
 			std::cout << "\n";
 		}
