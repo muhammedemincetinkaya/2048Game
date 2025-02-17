@@ -2,10 +2,21 @@
 #include<iostream>
 #include"cstdlib"
 
+/*
+	* Initializes a n x n grid filled with zeros and placaes a 2 in the top left corner.
+	* @param n The size of the grid
+*/
+
 Grid::Grid(int n) : grid(n,std::vector<int>(n,0))
 {
 	grid[0][0] = 2;
 }
+
+/*
+	* Extracts a row as a Line object
+	* @param i Index of the row.
+	* @return Line containing the values of the row.
+*/
 
 
 	Line Grid::extractRow(int i)
@@ -18,6 +29,12 @@ Grid::Grid(int n) : grid(n,std::vector<int>(n,0))
 		}
 		return l;
 	}
+
+/*
+	* Extract a row in reverse order.
+	* @param i Index of the row.
+	* @return Line containing the values of the row in reverse order.
+*/
 	Line Grid::extractRowReverse(int i)
 	{
 		int n = grid.size();
@@ -28,6 +45,12 @@ Grid::Grid(int n) : grid(n,std::vector<int>(n,0))
 		}
 		return l;
 	}
+
+/*
+	* Extract a column as a Line object.
+	* @param i Index of the row.
+	* @return Line containing the values of the column.
+*/
 	Line Grid::extractColumn(int i)
 	{
 		int n = grid.size();
@@ -38,6 +61,12 @@ Grid::Grid(int n) : grid(n,std::vector<int>(n,0))
 		}
 		return l;
 	}
+
+/*
+	* Extract a column in reverse order.
+	* @param i Index of the row.
+	* @return Line containing the values of the column in reverse.
+*/
 	Line Grid::extractColumnReverse(int i)
 	{
 		int n = grid.size();
@@ -48,6 +77,10 @@ Grid::Grid(int n) : grid(n,std::vector<int>(n,0))
 		}
 		return l;
 	}
+
+/*
+	* Methods to update the grid based on the player's input. 
+*/
 	void Grid::updateLeft()
 	{
 		int n = grid.size();
@@ -105,6 +138,10 @@ Grid::Grid(int n) : grid(n,std::vector<int>(n,0))
 		}
 		addRandom();
 	}
+
+/*
+	* Adds a new 2 at a random empty position in the grid. 
+*/
 	void Grid::addRandom()
 	{
 		int n = grid.size();
@@ -141,6 +178,10 @@ Grid::Grid(int n) : grid(n,std::vector<int>(n,0))
 			}
 		}
 	}
+
+/*
+	* Prints the grid out to the console. 
+*/
 	void Grid::printGrid()
 	{
 		for (const auto& row : grid)
@@ -153,6 +194,10 @@ Grid::Grid(int n) : grid(n,std::vector<int>(n,0))
 			std::cout << "\n";
 		}
 	}
+
+/*
+	* Runs the game, allowing the player to make moves. 
+*/
 	void Grid::runGame()
 	{
 		char move;
